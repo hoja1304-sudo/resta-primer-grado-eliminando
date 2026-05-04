@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resta eliminando</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="screen screen-menu is-active" id="menuScreen" aria-label="Seleccion de familia">
+        <div class="menu-layout">
+          <header class="hero-copy">
+            <p class="eyebrow">Primer grado</p>
+            <h1>Resta eliminando</h1>
+            <p class="intro">Elige una familia, elimina los objetos que indica la resta y cuenta cuántos quedan.</p>
+            <p class="credit">Creado por: Alberto Jiménez Ruiz 2026.</p>
+          </header>
+
+          <section class="family-panel" aria-label="Familias">
+            <h2>Familias</h2>
+            <div class="family-list">
+              <button class="family-button" type="button" data-max="3">De 1 a 3</button>
+              <button class="family-button" type="button" data-max="5">De 1 a 5</button>
+              <button class="family-button" type="button" data-max="19">De 1 a 19</button>
+            </div>
+          </section>
+        </div>
+
+        <nav class="utility-actions" aria-label="Preferencias">
+          <button id="themeButtonMenu" class="control-button" type="button" aria-pressed="false"></button>
+          <button id="audioButtonMenu" class="control-button" type="button" aria-pressed="true"></button>
+        </nav>
+      </section>
+
+      <section class="screen screen-play" id="playScreen" aria-label="Juego de resta eliminando">
+        <header class="play-header">
+          <div>
+            <p class="eyebrow" id="familyLabel">Familia de 1 a 19</p>
+            <h2>Elimina objetos y responde</h2>
+          </div>
+          <nav class="play-controls" aria-label="Controles del juego">
+            <button id="menuButton" class="control-button compact" type="button">&#9776; Menu</button>
+            <button id="resetButton" class="control-button compact" type="button">&#8635; Reiniciar</button>
+            <button id="themeButtonPlay" class="control-button compact" type="button" aria-pressed="false"></button>
+            <button id="audioButtonPlay" class="control-button compact" type="button" aria-pressed="true"></button>
+          </nav>
+        </header>
+
+        <section class="problem-card" aria-label="Resta actual">
+          <div class="equation-line">
+            <strong id="minuendNumber">9</strong>
+            <span class="operator">-</span>
+            <strong id="subtrahendNumber">5</strong>
+            <span class="equals">=</span>
+            <div class="answer-card" id="answerCard" aria-live="polite">?</div>
+          </div>
+
+          <div class="progress-pill" id="removeStatus" aria-live="polite">Toca 5 objetos para eliminarlos</div>
+          <div class="object-grid" id="objectGrid" aria-label="Objetos para eliminar"></div>
+        </section>
+
+        <section class="feedback" id="feedback" aria-live="polite">
+          <img id="feedbackImage" alt="" />
+          <span id="feedbackText">Primero elimina los objetos que indica la resta.</span>
+        </section>
+
+        <section class="answer-zone" aria-label="Respuestas">
+          <div class="answer-grid" id="answerGrid"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
