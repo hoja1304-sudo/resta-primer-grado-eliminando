@@ -25,6 +25,7 @@ const state = {
 const els = {
   menuScreen: document.querySelector("#menuScreen"),
   playScreen: document.querySelector("#playScreen"),
+  exitScreen: document.querySelector("#exitScreen"),
   familyLabel: document.querySelector("#familyLabel"),
   minuendNumber: document.querySelector("#minuendNumber"),
   subtrahendNumber: document.querySelector("#subtrahendNumber"),
@@ -61,8 +62,10 @@ function makeProblem() {
 
 function showScreen(name) {
   const play = name === "play";
-  els.menuScreen.classList.toggle("is-active", !play);
+  const exit = name === "exit";
+  els.menuScreen.classList.toggle("is-active", !play && !exit);
   els.playScreen.classList.toggle("is-active", play);
+  els.exitScreen.classList.toggle("is-active", exit);
 }
 
 function startFamily(max) {
@@ -236,6 +239,15 @@ function toggleTheme() {
   syncUtilityButtons();
 }
 
+function exitGame() {
+  if ("speechSynthesis" in window) {
+    window.speechSynthesis.cancel();
+  }
+
+  showScreen("exit");
+  window.close();
+}
+
 function syncUtilityButtons() {
   const audioLabel = state.audio ? "Audio activo" : "Audio apagado";
   const themeLabel = state.dark ? "Claro" : "Claro oscuro";
@@ -265,6 +277,8 @@ document.querySelector("#resetButton").addEventListener("click", () => {
   newRound();
   speak("Nueva resta.");
 });
+
+document.querySelector("#exitButton").addEventListener("click", exitGame);
 
 els.audioButtons.forEach((button) => button.addEventListener("click", toggleAudio));
 els.themeButtons.forEach((button) => button.addEventListener("click", toggleTheme));

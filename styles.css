@@ -195,6 +195,10 @@ body.theme-dark .control-button {
   font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
+.exit-button {
+  color: var(--red);
+}
+
 .compact {
   min-height: 38px;
   padding: 8px 12px;
@@ -440,6 +444,39 @@ body.theme-dark .object-grid {
 .answer-bubble.is-wrong {
   color: var(--red);
   opacity: 0.62;
+}
+
+.screen-exit {
+  place-items: center;
+}
+
+.exit-panel {
+  display: grid;
+  gap: 12px;
+  width: min(520px, 100%);
+  padding: clamp(22px, 5vw, 38px);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.exit-panel h2,
+.exit-panel p {
+  margin: 0;
+}
+
+.exit-panel h2 {
+  color: var(--ink);
+  font-size: clamp(2rem, 6vw, 3.6rem);
+  line-height: 1;
+}
+
+.exit-panel p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 800;
 }
 
 @keyframes popIn {
